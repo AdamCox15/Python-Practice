@@ -40,3 +40,52 @@ print(remainder(15, 14))
 print(remainder(9, 6))
 
 # ------------------------
+
+def first_three_multiples(num):
+  print(num)
+  print(num * 2)
+  print(num * 3)
+  return num * 3
+
+first_three_multiples(10)
+first_three_multiples(0)
+
+# ------------------------
+
+def tip(total, percentage):
+  tip_amount = (total * percentage) / 100
+  return tip_amount
+  
+print(tip(10, 25))
+print(tip(0, 100))
+
+
+# ------------------------
+
+def introduction(first_name, last_name):
+  return last_name + ", " + first_name + " " + last_name
+
+print(introduction("James", "Bond"))
+print(introduction("Maya", "Angelou"))
+# ------------------------
+
+def dog_years(name, age):
+  return name+", you are "+str(age * 7)+" years old in dog years"
+
+print(dog_years("Lola", 16))
+print(dog_years("Baby", 0))
+
+# ------------------------
+
+def lots_of_math(a, b, c, d):
+  first = a + b
+  second = c - d
+  third = first * second
+  fourth = third % a
+  print(first)
+  print(second)
+  print(third)
+  return fourth
+
+print(lots_of_math(1, 2, 3, 4))
+print(lots_of_math(1, 1, 1, 1))
