@@ -29,3 +29,22 @@ def password_generator(first_name, last_name):
 
 temp_password = password_generator(first_name, last_name)
 print(temp_password)
+
+company_motto = "Copeland's Corporate Company helps you capably cope with the constant cacophony of daily life"
+
+second_to_last = company_motto[-2:-1]
+final_word = company_motto[-4:]
+print(final_word)
+
+first_name = "Bob"
+last_name = "Daily"
+
+fixed_first_name = "R" + first_name[1:]
+
+password = "theycallme\"crazy\"91"
+
+name = "Adam"
+def get_length(str):
+  return len(str)
+
+print(get_length(name))
