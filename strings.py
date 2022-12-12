@@ -48,3 +48,31 @@ def get_length(str):
   return len(str)
 
 print(get_length(name))
+
+def letter_check(word, letter):
+  for character in word:
+    if character == letter:
+     return True  
+  return False
+  print(letter_check("strawberry", "a"))
+  
+def contains(big_string, little_string):
+  return little_string in big_string
+
+def common_letters(string_one, string_two):
+  common = []
+  for letter in string_one:
+    if (letter in string_two) and not (letter in common):
+      common.append(letter)
+  return common
+
+def username_generator(first_name, last_name):
+  user_name = first_name[:3] + last_name[:4]
+  return user_name
+print(username_generator("Abe", "Simpson"))
+
+def password_generator(user_name):
+    password = ""
+    for i in range(0, len(user_name)):
+        password += user_name[i-1]
+    return password
