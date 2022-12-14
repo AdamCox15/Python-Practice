@@ -76,3 +76,19 @@ def password_generator(user_name):
     for i in range(0, len(user_name)):
         password += user_name[i-1]
     return password
+# ---- String Methods -----------
+
+poem_title = "spring storm"
+poem_author = "William Carlos Williams"
+
+poem_title_fixed = poem_title.title()
+print(poem_title)
+print(poem_title_fixed)
+
+poem_author_fixed = poem_author.upper()
+print(poem_author)
+print(poem_author_fixed)
+
+line_one = "The sky has given over"
+
+line_one_words = line_one.split()
