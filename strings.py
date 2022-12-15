@@ -330,4 +330,28 @@ print(daily_transactions_split)
 
 transactions_clean = []
 
-for i in daily_transactions_split:
+  for data_point in transaction:
+    transaction_clean.append(data_point.replace('\n', '').strip(" "))
+    transactions_clean.append(transaction_clean)
+# print(transactions_clean)
+
+customers = []
+sales = []
+thread_sold = []
+
+for i in transactions_clean:
+  customers.append(i[0])
+  sales.append(i[1])
+  thread_sold.append(i[2])
+# print(sales)
+
+total_sales = 0
+for sale in sales:
+  total_sales += float(sale.strip("$"))
+print(total_sales)
+
+
+
+
+
+
