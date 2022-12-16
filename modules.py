@@ -66,10 +66,3 @@ parsed_date.day
 
 date_string = datetime.strftime(dateime.now(), '%b %d, %Y')
 date_string
-
-# --------------------------------
-
-
-
-
-# --------------------------------
