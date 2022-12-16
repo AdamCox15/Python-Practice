@@ -48,8 +48,18 @@ from library import always_three
 print(always_three())
 
 # --------------------------------
+# Datetime practice
+from datetime import datetime
+# year, mon, day, hour, min, sec
+birthday = datetime(1990, 5, 15, 4, 25, 12)
+birthday.year
+birthday.weekday()
+birthday.hour
 
-
+datetime.now()
+datetime(2018, 1, 1) - datetime(2017,1 ,1)
+# strptime practice
+parsed_date = datetime.strptime('Jan 15, 2018', )
 
 # --------------------------------
 
