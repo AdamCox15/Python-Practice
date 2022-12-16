@@ -59,7 +59,10 @@ birthday.hour
 datetime.now()
 datetime(2018, 1, 1) - datetime(2017,1 ,1)
 # strptime practice
-parsed_date = datetime.strptime('Jan 15, 2018', )
+parsed_date = datetime.strptime('Jan 15, 2018', '%b %d, %Y')
+parsed_date.month
+parsed_date.year
+parsed_date.day
 
 # --------------------------------
 
