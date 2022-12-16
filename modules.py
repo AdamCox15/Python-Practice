@@ -64,6 +64,9 @@ parsed_date.month
 parsed_date.year
 parsed_date.day
 
+date_string = datetime.strftime(dateime.now(), '%b %d, %Y')
+date_string
+
 # --------------------------------
 
 
