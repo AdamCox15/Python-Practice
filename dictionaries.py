@@ -37,3 +37,19 @@ plays["Respect"] = 94
 print(plays)
 library = {"The Best Songs": plays, "Sunday Feelings": {}}
 print(library)
+
+zodiac_elements = {"water": ["Cancer", "Scorpio", "Pisces"], "fire": ["Aries", "Leo", "Sagittarius"], "earth": ["Taurus", "Virgo", "Capricorn"], "air":["Gemini", "Libra", "Aquarius"]}
+print(zodiac_elements["earth"])
+print(zodiac_elements["fire"])
+
+zodiac_elements = {"water": ["Cancer", "Scorpio", "Pisces"], "fire": ["Aries", "Leo", "Sagittarius"], "earth": ["Taurus", "Virgo", "Capricorn"], "air":["Gemini", "Libra", "Aquarius"]}
+
+
+if "energy" in zodiac_elements:
+  print(zodiac_elements["energy"])
+
+zodiac_elements["energy"] = "Not a Zodiac element"
+
+
+
+
