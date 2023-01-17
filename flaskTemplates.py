@@ -121,45 +121,74 @@ def recipe(id):
   </body>
 </html>
 
-# ---------- index html ------------------
+# ---------------- updated app file -------------------
+
+from flask import Flask, render_template
+from helper import recipes, descriptions, ingredients, instructions
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+  return render_template("index.html", template_recipes=recipes)
+
+@app.route('/about')
+def about():
+  return render_template("about.html")
+
+@app.route("/recipe/<int:id>")
+def recipe(id):
+  return render_template("recipe.html", template_recipe=recipes[id], template_description=descriptions[id], template_ingredients=ingredients[id], template_instructions=instructions[id])
+# ------------- created a base html file ----------------- 
 
 <!DOCTYPE html>
 <html>
   <body>
-    <h1>Cooking By Myself</h1>
-    <p>Welcome to my cookbook. These are recipes I like.</p>
-    <!-- Implement a for loop using `template_recipes`-->
-    {% for id, name in template_recipes.items() %}
-    <p><a href="/recipe/{{ id }}">{{ name }}</a></p>
-  {% endfor%}
+    <div>
+  <a href="/">Recipes</a>
+   | 
+  <a href="/about">About</a>
+</div>
+    {% block content %}
+    {% endblock %}
   </body>
 </html>
 
-#  --------------- recipes html updated ----------------
+# ---------- index html updated to extend base html ------------------
 
-<!DOCTYPE html>
-<html>
-  <body>
+{% extends "base.html" %}
+{% block content %}
+    <h1>Cooking By Myself</h1>
+    <p>Welcome to my cookbook. These are recipes I like.</p>
+    {% for id, name in template_recipes.items() %}
+      <p><a href="/recipe/{{ id }}">{{ name | title }}</a></p>
+    {% endfor %}
+{% endblock %}
+
+#  --------------- recipes html updated to extend base html  ----------------
+
+{% extends "base.html" %}
+{% block content %}
     <a href="/">Back To Recipe List</a>
     <h1>{{ template_recipe | title }}</h1>
+    
     {% if template_description %}
       <p>{{ template_description }}</p>
     {%else%}
       <p>A {{ template_recipe }} recipe.</p>
     {% endif %}
+    
     <h3>Ingredients - {{ template_ingredients | length}}</h3>
     <ul>
-      <!-- Implement a for loop to iterate through 
-      `template_ingredients`-->
-      {% for ingredient in template_ingredients %}
-      <li>{{ ingredient }}</li> 
-      {% endfor %}
+    {% for ingredient in template_ingredients %}
+      <li>{{ ingredient }}</li>
+    {% endfor %}
     </ul>
+
     <h3>Instructions</h3>
     <ul>
     {% for key, instruction in template_instructions|dictsort %}
-      <p>{{ key }}: {{ instruction }}</p>
+      <li>{{ instruction }}</li>
     {% endfor %}
     </ul>
-  </body>
-</html>
+{% endblock %}
