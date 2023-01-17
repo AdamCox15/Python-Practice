@@ -49,7 +49,7 @@ def recipe(id):
   #### Returning a rendered fried_egg.html file
   return render_template("fried_egg.html")
 
-# ----------- new render templated html file below ----------
+# ----------- new render templated recipe html file below ----------
 
 <!DOCTYPE html>
 <html>
@@ -67,7 +67,6 @@ def recipe(id):
     </ul>
      <h3>Instructions</h3>
     <ol>
-      <!-- Ensure sorted instruction dictionary -->
       <li>{{ template_instructions | dictsort }}</li>
     </ol>
   </body>
@@ -90,3 +89,77 @@ def recipe(id):
   #### variable assignment arguments
   return render_template("recipe.html", template_recipe=recipes[id], template_ingredients=ingredients[id], template_instructions=instructions[id])
 
+# -------------- Adding if statements to the recipe html template -------
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <a href="/">Back To Recipe List</a>
+    <h1>{{ template_recipe | title }}</h1>
+   
+    {% if template_description %}
+    <p>{{ template_description }}</p>
+    
+    {% else %}
+    <p>A {{ template_recipe }} recipe.</p>
+    
+    {% endif %}
+    <h3>Ingredients - {{ template_ingredients | length}}</h3>
+    <ul>
+      <li>{{ template_ingredients[0] }}</li>
+      <li>{{ template_ingredients[1] }}</li>
+   
+      {% if template_ingredients | length == 3 %}
+      <li>{{ template_ingredients[2] }}</li>
+      
+      {% endif %}
+    </ul>
+    <h3>Instructions</h3>
+    <ol>
+      <li>{{ template_instructions | dictsort }}</li>
+    </ol>
+  </body>
+</html>
+
+# ---------- index html ------------------
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Cooking By Myself</h1>
+    <p>Welcome to my cookbook. These are recipes I like.</p>
+    <!-- Implement a for loop using `template_recipes`-->
+    {% for id, name in template_recipes.items() %}
+    <p><a href="/recipe/{{ id }}">{{ name }}</a></p>
+  {% endfor%}
+  </body>
+</html>
+
+#  --------------- recipes html updated ----------------
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <a href="/">Back To Recipe List</a>
+    <h1>{{ template_recipe | title }}</h1>
+    {% if template_description %}
+      <p>{{ template_description }}</p>
+    {%else%}
+      <p>A {{ template_recipe }} recipe.</p>
+    {% endif %}
+    <h3>Ingredients - {{ template_ingredients | length}}</h3>
+    <ul>
+      <!-- Implement a for loop to iterate through 
+      `template_ingredients`-->
+      {% for ingredient in template_ingredients %}
+      <li>{{ ingredient }}</li> 
+      {% endfor %}
+    </ul>
+    <h3>Instructions</h3>
+    <ul>
+    {% for key, instruction in template_instructions|dictsort %}
+      <p>{{ key }}: {{ instruction }}</p>
+    {% endfor %}
+    </ul>
+  </body>
+</html>
