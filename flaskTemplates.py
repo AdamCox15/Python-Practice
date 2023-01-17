@@ -16,10 +16,8 @@ def index():
     </html>
     '''
 
-#### Add the variable `id` to the route URL
-#### and make it the sole function parameter
-@app.route("/recipe")
-def recipe():
+@app.route("/recipe/<int:id>")
+def recipe(id):
   return '''
     <!DOCTYPE html>
     <html>
@@ -32,3 +30,21 @@ def recipe():
       </body>
     </html>
     '''
+# ----------------------------------------------
+
+from flask import Flask, render_template
+from helper import recipes, descriptions, ingredients, instructions
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+  
+  #### Returning a rendered index.html file
+  return ""
+
+@app.route("/recipe/<int:id>")
+def recipe(id):
+    
+  #### Returning a rendered fried_egg.html file
+  return ""
