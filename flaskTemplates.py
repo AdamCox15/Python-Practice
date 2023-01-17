@@ -165,6 +165,19 @@ def recipe(id):
     {% endfor %}
 {% endblock %}
 
+# ---------------- added an about html ----------------
+
+{% extends "base.html" %}
+{% block content %}
+  <h1>About Myself</h1>
+  <p>
+    I like to cook, save recipes and share them with you.
+  </p>
+  <p>
+    Thank you for visiting!!!
+  </p>
+{% endblock %}
+
 #  --------------- recipes html updated to extend base html  ----------------
 
 {% extends "base.html" %}
