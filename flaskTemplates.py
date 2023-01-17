@@ -55,9 +55,9 @@ def recipe(id):
 <html>
   <body>
     <a href="/">Back To Recipe List</a>
-    <h1>{{ template_recipe }}</h1>
-    <p>{{ template_description }}</p>
-    <h3>Ingredients</h3>
+    <h1>{{ template_recipe | title  }}</h1>
+    <p>{{ template_description | default("A" + template_recipe + "recipe")}}</p>
+    <h3>Ingredients - {{template_ingredients | length}}</h3>
     <ul>
       <!-- Ingredients list elements
       should fill the <li> tags -->
@@ -65,6 +65,11 @@ def recipe(id):
       <li>{{template_ingredients[1]}}</li>
       <li>{{template_ingredients[2]}}</li>
     </ul>
+     <h3>Instructions</h3>
+    <ol>
+      <!-- Ensure sorted instruction dictionary -->
+      <li>{{ template_instructions | dictsort }}</li>
+    </ol>
   </body>
 </html>
 
@@ -83,5 +88,5 @@ def index():
 def recipe(id):
   #### Added template variables as 
   #### variable assignment arguments
-  return render_template("recipe.html", template_recipe=recipes[id], template_description=descriptions[id], template_ingredients=ingredients[id])
+  return render_template("recipe.html", template_recipe=recipes[id], template_ingredients=ingredients[id], template_instructions=instructions[id])
 
