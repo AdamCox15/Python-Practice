@@ -67,23 +67,23 @@ def index():
       <col style="width: 10%">
     </colgroup>
     <tbody class="loctable">
-        <!-- begin for loop here -->
+        {% for location in locations %}
 
         <tr>
-          <td class="loc"></td> <!-- insert location name here -->
-          <td class="desc"></td> <!-- insert location description here -->
+          <td class="loc">{{ location.name }}</td> 
+          <td class="desc">{{ location.description }}</td> 
           <td class="btns">
             <!-- start if statement here -->
 
             <form method="POST">
-              <input type="submit" class="up" name="" value=&#8599;> <!-- set name attribute here -->
-              <input type="submit" class="del" name="" value="X"> <!-- set name attribute here -->
+              <input type="submit" class="up" name="{{ location.name }}" value=&#8599;>
+              <input type="submit" class="del" name="{{ location.name }}" value="X"> 
             </form>
             <!-- end if statement here -->
 
           </td>
         </tr>
-        <!-- end for loop here -->
+        {% endfor %}
 
     </tbody>
   </table>
