@@ -23,8 +23,8 @@ def locations(category):
       visit.moveup(name)
     elif action == DEL_ACTION:
       visit.delete(name)
-  ## Return the main template with variables
-  return ""
+      
+    return render_template("locations.html", category=category, categories=categories, locations=locations)
 
 @app.route("/add_location", methods=["POST"])
 def add_location():
@@ -51,13 +51,12 @@ def index():
 
 <!-- begin block content here -->
 
-  <h1></h1> <!-- insert category here -->
+  <h1>{{ categories[category] }}</h1>
 
   <div class="navbar">
-    <!-- begin for loop here -->
-
-      <a href=""></a> <!-- set attribute and text here -->
-    <!-- end for loop here -->
+   {% for category, label in categories.items()%}
+      <a href="{{ category }}">{{ label }}</a>
+    {% endfor %}
 
   </div>
 
