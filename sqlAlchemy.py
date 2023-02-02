@@ -55,3 +55,17 @@ class Reader(db.Model):
   
   def __repr__(self):
       return "Reader: {}".format(self.email)
+
+#  ------ Declaring relationships One-to-many -------------
+
+class Reader(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String(50), index = True, unique = False)
+    surname = db.Column(db.String(80), unique = False, index = True)
+    email = db.Column(db.String(120), unique = True, index = True)
+    #added relationship column here
+    reviews = db.relationship('Review', backref = 'reviewer', lazy = 'dynamic')
+  
+  
+    def __repr__(self):
+        return "Reader: {}".format(self.email)
