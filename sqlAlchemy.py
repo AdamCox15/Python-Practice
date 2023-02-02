@@ -76,3 +76,11 @@ class Reader(db.Model):
     
 #  ------- Putting it all together: initializing the database --------
 
+$ python3
+
+>>> from app import db
+
+>>> db.create_all()
+
+#  ---- Creating database entries: entities -----------
+
