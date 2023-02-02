@@ -99,6 +99,9 @@ print(b2.author_surname)
 
 print(len(r2.email))
 
+#  ----------- Creating database entries: relationships ------------
 
+rev2 = Review(id = 450, text = 'This book is difficult!', stars = 2, reviewer_id = r2.id, book_id = b2.id)
 
+print(len(rev2.text.split()))
 
