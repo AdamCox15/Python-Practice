@@ -56,7 +56,7 @@ class Reader(db.Model):
   def __repr__(self):
       return "Reader: {}".format(self.email)
 
-#  ------ Declaring relationships One-to-many -------------
+#  ------ Part 1: Declaring relationships One-to-many -------------
 
 class Reader(db.Model):
     id = db.Column(db.Integer, primary_key = True)
@@ -69,3 +69,10 @@ class Reader(db.Model):
   
     def __repr__(self):
         return "Reader: {}".format(self.email)
+    
+#  ----- Part:2 Declaring relationships (Foregin Keys) -----------
+
+    reviewer_id = db.Column(db.Integer, db.ForeignKey('reader.id'))
+    
+#  ------- Putting it all together: initializing the database --------
+
