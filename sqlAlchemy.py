@@ -105,3 +105,28 @@ rev2 = Review(id = 450, text = 'This book is difficult!', stars = 2, reviewer_id
 
 print(len(rev2.text.split()))
 
+#  ---- Queries: query.all() and query.get() ------
+
+from app import db, Book, Reader, Review, Annotation
+
+readers = Reader.query.all()
+print(readers)
+
+reader = Reader.query.get(123)
+print(reader)
+
+reader = Reader.query.get(450)
+print("Reader with id = ", reader.id, "is called", reader.name)
+
+for reader in readers:
+  print(reader.email)
+
+reviews = Review.query.all()
+for review in reviews:
+  print(review.text)
+
+for review in reviews:
+  print(review.text)
+
+book_1 = Book.query.get(12)
+
