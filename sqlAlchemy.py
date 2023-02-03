@@ -262,9 +262,9 @@ class Song(db.Model):
 
 class Item(db.Model):
   id = db.Column(db.Integer, primary_key = True) 
-  song_id = db.Column(db.Integer, db.Foregin_key('song.id') )
+  song_id = db.Column(db.Integer, db.ForeignKey('song.id') )
     
 class Playlist(db.model):
   id = db.Column(db.Integer, primary_key = True)
-  playlist_id = db.Column(db.Integer, db.Foregin_key('playlist.id'))
-  items = db.Relationship('Item', backref = 'playlist', lazy = 'dynamic')
+  playlist_id = db.Column(db.Integer, db.ForeignKey('playlist.id'))
+  items = db.relationship('Item', backref = 'playlist', lazy = 'dynamic')
