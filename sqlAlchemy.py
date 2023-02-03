@@ -217,3 +217,13 @@ print("\nCheckpoint 3: your code here below:")
 ordered_reviews = Review.query.order_by(Review.stars).all()
 print(ordered_reviews)
 
+#  ----------- Session: add and rollback -----------
+
+new_reader = Reader(name = "Peter", surname = "Johnson", email = "peter.johnson@example.com") 
+
+db.session.add(new_reader)
+
+try: 
+  db.session.commit()
+except:
+  db.session.rollback()
