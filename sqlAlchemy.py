@@ -248,6 +248,23 @@ def reviews(review_id):
    review = Review.query.filter_by(id = review_id).first_or_404(description = "There is no user with this ID.")
    return render_template('_review.html', review = review)
 
+#  ------- more practice stuff to reference later ------------
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///song_library.db'
 
+class Song(db.Model):
+  id = db.Column(db.Integer, primary_key = True)
+  artist = db.Column(db.String(120), index = True, unique = False)
+  title = db.Column(db.String(120), index = True, unique = False)
+  n = db.Column(db.Integer, index = False, unique = False)
+  def __reper__(self):
+    return f"{self.title} by {self.author}"
 
+class Item(db.Model):
+  id = db.Column(db.Integer, primary_key = True) 
+  song_id = db.Column(db.Integer, db.Foregin_key('song.id') )
+    
+class Playlist(db.model):
+  id = db.Column(db.Integer, primary_key = True)
+  playlist_id = db.Column(db.Integer, db.Foregin_key('playlist.id'))
+  items = db.Relationship('Item', backref = 'playlist', lazy = 'dynamic')
