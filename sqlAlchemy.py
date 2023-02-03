@@ -227,3 +227,24 @@ try:
   db.session.commit()
 except:
   db.session.rollback()
+
+#  ------------- Session: updating existing entires --------
+
+book_19 = Book.query.get(19)
+book_19.month = 'June' 
+db.session.commit()
+
+#  ----- Session: Removing database entries "cascading deletion" ---------
+
+#  in app.py changed the relationship() by adding a cascade parameter
+reviews = db.relationship('Review', backref='reviewer', lazy='dynamic', cascade = 'all, delete, delete-orphan')
+
+db.session.delete(Reader.query.get(123))
+
+#  ----- Queries and templates --------
+
+
+
+
+
+
