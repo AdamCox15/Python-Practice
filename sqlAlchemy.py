@@ -246,7 +246,7 @@ db.session.delete(Reader.query.get(123))
 @app.route('/reviews/<int:review_id>')
 def reviews(review_id):
    review = Review.query.filter_by(id = review_id).first_or_404(description = "There is no user with this ID.")
-   return render_template('_review.html', review = review)
+   return render_template('review.html', review = review)
 
 #  ------- more practice stuff to reference later ------------
 
