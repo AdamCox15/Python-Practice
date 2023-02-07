@@ -287,3 +287,12 @@ password_attempt_two = "123456789_bad_password"
 
 hash_match_two = check_password_hash(hashed_password, password_attempt_two)
 print(hash_match_two)
+
+#  -------- Modeling accounts with SQLAlchemy --------
+
+class User(UserMixin, db.Model):
+  id = db.Column(db.Integer, primary_key=True)
+  username = db.Column(db.String(64), index=True, unique=True)
+  email = db.Column(db.String(120), index = True, unique = True)
+  password_hash = db.Column(db.String(128))
+  joined_at = db.Column(db.DateTime(), index = True, default = datetime.utcnow)
