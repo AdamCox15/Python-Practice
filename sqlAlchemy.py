@@ -467,3 +467,29 @@ def index():
   # grabed all guests and display them
   current_users = User.query.all()
   return render_template('landing_page.html', current_users = current_users)
+
+# ------- Success and Error Handling -------------
+                      
+@app.route('/user/<username>/rsvp/', methods=['GET', 'POST'])
+@login_required
+def rsvp(username):
+  user = User.query.filter_by(username=username).first_or_404()
+  dinner_parties = DinnerParty.query.all()
+  if dinner_parties is None:
+    dinner_parties = []
+  form = RsvpForm(csrf_enabled=False)
+  if form.validate_on_submit():
+    dinner_party = DinnerParty.query.filter_by(id=int(form.party_id.data)).first()
+    # try block
+    try:
+      dinner_party.attendees += f", {username}"
+      db.session.commit()
+      # query to find the host of dinner_party
+      host = User.query.filter_by(id=int(dinner_party.party_host_id)).first()
+      # add RSVP success message here:
+      flash(f"You successfully RSVP'd to {host.username}'s dinner party on {dinner_party.date}!")
+    # except block
+    except:
+      # add the RSVP failure message here
+      flash("Please enter a valid Party ID to RSVP!")
+  return render_template('rsvp.html', user=user, dinner_parties=dinner_parties, form=form)
