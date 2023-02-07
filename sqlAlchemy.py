@@ -296,3 +296,28 @@ class User(UserMixin, db.Model):
   email = db.Column(db.String(120), index = True, unique = True)
   password_hash = db.Column(db.String(128))
   joined_at = db.Column(db.DateTime(), index = True, default = datetime.utcnow)
+
+#  --------- Signing up with WTForms ----------
+
+class RegistrationForm(FlaskForm):
+  username = StringField('Username', validators=[DataRequired()])
+  # add email field here:
+  email = StringField('Email', validators = [DataRequired(), Email()]
+  # add password fields here:
+  password = PasswordField('Password', validators=[DataRequired()])
+  password2 = PasswordField('Repeat Password', validators= [DataRequired(), EqualTo('password')])
+  
+  submit = SubmitField('Register')
+
+                                           
+def register():
+  form = RegistrationForm(csrf_enabled=False)
+  if form.validate_on_submit():
+    user = User(username = form.username.data, email = form.email.data)
+    user.set_password(form.password.data)
+    db.session.add(user)
+    db.session.commit()
+  return render_template('register.html', title='Register', form=form)
+
+
+
