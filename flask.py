@@ -37,8 +37,7 @@ def article(article_name):
   <h2>{article_name.replace('-', ' ').title()}</h2>
   <a href='/'>Return back to home page</a>
   '''
- 
-    
+  
 #  ---------- Intro to Authentication ----------
 #  Flask-Login 
 
@@ -102,6 +101,38 @@ def home():
 @login_manager.unauthorized_handler
 def unauthorized():
   return "Sorry you must be logged in to view this page"
+
+#  ----- Loging in a User ---------
+
+@login_manager.user_loader
+def load_user(id):
+    return User.query.get(int(id))
+    
+@app.route('/', methods=['GET', 'POST'])
+def index():
+  if flask.request.method == 'GET':
+    return '''
+    <p>Your credentials:
+    username: TheCodeLearner
+    password: !aehashf0qr324*&#W)*E!
+    </p>
+               <form action='/' method='POST'>
+                <input type='text' name='email' id='email' placeholder='email'/>
+                <input type='password' name='password' id='password' placeholder='password'/>
+                <input type='submit' name='submit'/>
+               </form>
+               '''
+  email = "TheCodeLearner"
+  if flask.request.form['password'] == "!aehashf0qr324*&#W)*E!":
+    user = User(email="TheCodeLearner@gmail.com", username="TheCodeLearner",password="!aehashf0qr324*&#W)*E!")
+    login_user(user)
+    return render_template("logged_in.html", current_user=user )
+  return login_manager.unauthorized()
+
+@app.route('/home')
+@login_required
+def home():
+	return render_template('logged_in.html')
 
 
 
