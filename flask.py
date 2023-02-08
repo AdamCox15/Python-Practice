@@ -134,6 +134,14 @@ def index():
 def home():
 	return render_template('logged_in.html')
 
+#  --------- Showing the logged in user ---------
 
+# In the html
+<p>{{current_user.username}}, thanks for checking this page out! </p>
 
+#  ----- Logout -----------
 
+from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user
+
+# In the html
+<a href="{{ url_for('logout') }}">Logout</a>
