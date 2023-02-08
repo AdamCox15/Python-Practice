@@ -37,5 +37,25 @@ def article(article_name):
   <h2>{article_name.replace('-', ' ').title()}</h2>
   <a href='/'>Return back to home page</a>
   '''
-  
-  
+ 
+    
+#  ---------- Intro to Authentication ----------
+#  Flask-Login 
+
+from flask import Flask
+from flask_login import LoginManager
+
+app = Flask(__name__)
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, Authentication World!'
+
+
+
+
+
+
