@@ -97,7 +97,11 @@ def index():
 def home():
 	return render_template('logged_in.html')
 
+#  ------- Error Handling ---------
 
+@login_manager.unauthorized_handler
+def unauthorized():
+  return "Sorry you must be logged in to view this page"
 
 
 
