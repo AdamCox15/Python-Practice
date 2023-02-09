@@ -1,5 +1,6 @@
 # ----- Data Science in Python --------
 
+import pandas as pd
 import numpy as np
 import statsmodels as sm
 import seaborn as sns
@@ -46,3 +47,15 @@ plate = 'FRQ****'
 
 lookup_plate(plate)
 lookup_plate(plate, color='Green')
+
+#  ------- Loading a DataFrame -------
+# Always us alias as pd for pandas
+import pandas as pd 
+
+credit_records = pd.read_csv('credit_records.csv')
+
+print(credit_records.head())
+
+#  ----- Inspecting DataFrame ------
+
+print(credit_records.info())
