@@ -29,3 +29,20 @@ import pandas as pd
 r = pd.read_csv('ransom.csv')
 
 print(r)
+
+#  ----- Correcting a function error -----
+
+plt.plot(x_values y_values)
+
+plt.show()
+# Fixed
+plt.plot(x_values, y_values)
+
+plt.show()
+
+#  ---- Creating a variable for a license plate number ------
+
+plate = 'FRQ****'
+
+lookup_plate(plate)
+lookup_plate(plate, color='Green')
