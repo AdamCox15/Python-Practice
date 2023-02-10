@@ -71,6 +71,28 @@ print(mpr.info())
 name = mpr.['Dog Name']
 is_missing = mpr['Missing?']
 
+#  ------ Logical Testing --------
+
+print(height_inches > 70)
+print(plate1 == "FRQ123")
+print(fur_color != "brown")
+
+#  ------- Selecting missing puppies -------
+
+greater_than_2 = mpr[mpr.Age > 2]
+print(greater_than_2)
+
+still_missing = mpr[mpr.Status == 'Still Missing']
+print(still_missing)
+
+not_poodle = mpr[mpr['Dog Breed'] != 'Poodle']
+print(not_poodle)
+
+#  ------ Narrowing the list of suspects --------
+
+purchase = credit_records[credit_records.location == 'Pet Paradise']
+
+print(purchase)
 
 
 
