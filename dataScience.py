@@ -5,6 +5,15 @@ import numpy as np
 import statsmodels as sm
 import seaborn as sns
 
+#  ------ Example of matplotlib import and using it, also showing multiple lines ---------
+
+from matplotlib import pyplot as plt
+
+plt.plot(data1.x_values, data1.y_values)
+plt.plot(data2.x_values, data2.y_values)
+
+plt.show()
+
 # ---- Creating a float -----
 
 bayes_age = 4.0
@@ -94,7 +103,7 @@ purchase = credit_records[credit_records.location == 'Pet Paradise']
 
 print(purchase)
 
-
+# 
 
 
 
