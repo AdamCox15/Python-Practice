@@ -122,3 +122,16 @@ plt.plot(mengfei.day_of_week, mengfei.hours_worked, label='Mengfei')
 plt.legend()
 plt.show()
 
+#  -------- Adding labels -------
+
+plt.title('Hours worked chart')
+plt.ylabel('Hours')
+
+#  ------ Adding floating text -----
+
+plt.plot(six_months.month, six_months.hours_worked)
+plt.text(2.5, 80, 'Missing June data')
+
+plt.show()
+
+#  ------- 
