@@ -103,12 +103,12 @@ purchase = credit_records[credit_records.location == 'Pet Paradise']
 
 print(purchase)
 
-# 
+# -------- matplotlib import and checking officers hours worked --------
 
+from matplotlib import pyplot as plt
 
+plt.plot(deshaun.day_of_week, deshaun.hours_worked)
+plt.plot(aditya.day_of_week, aditya.hours_worked)
+plt.plot(mengfei.day_of_week, mengfei.hours_worked)
 
-
-
-
-
-
+plt.show()
