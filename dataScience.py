@@ -59,3 +59,25 @@ print(credit_records.head())
 #  ----- Inspecting DataFrame ------
 
 print(credit_records.info())
+
+#  ------ Two methods for selecting columns --------
+
+items = credit_records['item']
+items = credit_records.item
+
+# ------- More column selecion mistakes fixed -------
+
+print(mpr.info())
+name = mpr.['Dog Name']
+is_missing = mpr['Missing?']
+
+
+
+
+
+
+
+
+
+
+
