@@ -190,3 +190,18 @@ plt.ylabel("Frequency")
 
 plt.legend()
 
+#  --------- Charting data using scatter plots --------
+
+print(cellphone.head())
+
+plt.scatter(cellphone.x, cellphone.y)
+
+plt.ylabel('Latitude')
+plt.xlabel('Longitude')
+
+plt.show()
+
+#  -------- Modifying the scatterplot  changing color, marker and alpha-----------
+
+plt.scatter(cellphone.x, cellphone.y, color='red', marker='s', alpha=0.1)
+
