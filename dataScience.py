@@ -134,4 +134,37 @@ plt.text(2.5, 80, 'Missing June data')
 
 plt.show()
 
-#  ------- 
+#  ------- Color and linestyle -------
+
+# Phoenix color changed to `"DarkCyan"`
+plt.plot(data["Year"], data["Phoenix Police Dept"], label="Phoenix", color="DarkCyan")
+
+# Los Angeles line dotted
+plt.plot(data["Year"], data["Los Angeles Police Dept"], label="Los Angeles", linestyle=":")
+
+# Square markers for Philedelphia
+plt.plot(data["Year"], data["Philadelphia Police Dept"], label="Philadelphia", marker="s")
+
+plt.legend()
+plt.show()
+
+#  ----- Playing with styles ---------
+# style fivethirtyeight
+plt.style.use('fivethirtyeight')
+# style ggplot
+plt.style.use('ggplot')
+# style dark_background
+plt.style.use('dark_background')
+
+# View all styles use this in the console
+print(plt.style.availabe)
+
+plt.plot(data["Year"], data["Phoenix Police Dept"], label="Phoenix")
+plt.plot(data["Year"], data["Los Angeles Police Dept"], label="Los Angeles")
+plt.plot(data["Year"], data["Philadelphia Police Dept"], label="Philadelphia")
+
+# Add a legend
+plt.legend()
+
+# Display the plot
+plt.show()
