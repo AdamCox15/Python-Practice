@@ -168,3 +168,25 @@ plt.legend()
 
 # Display the plot
 plt.show()
+
+#  ------ Plotting letter frequencies from ransom note ---------
+
+plt.plot(ransom.letter, ransom.frequency, label="Ransom", linestyle=':', color='gray')
+
+plt.show()
+
+#  ------- Plotting a line for the data in suspect1 and suspect2 ---------
+
+plt.plot(suspect1.letter, suspect1.frequency, label="Fred Frequentist")
+
+plt.plot(suspect2.letter, suspect2.frequency, label="Gertrude Cox")
+
+plt.show()
+
+#  ------ Labeling x, y axis and adding legend --------
+
+plt.xlabel("Letter")
+plt.ylabel("Frequency")
+
+plt.legend()
+
