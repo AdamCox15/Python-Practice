@@ -21,3 +21,25 @@ print(
   	.reset_index()\
   	.rename(columns={'first_name': 'number_of_citizens'}))
 
+#  -------- visualize the data with matplotlib --------
+
+import codecademylib
+from matplotlib import pyplot as plt
+import pandas as pd
+
+# Loading data
+df = pd.read_csv('page_visits.csv')
+
+# Calculating survey results
+survey_results = df.groupby('website_goal')\
+  	.first_name.count()
+  
+# Making a pie chart
+plt.pie(survey_results.values,
+        labels=survey_results.index,
+        autopct='%d%%'
+       )
+plt.title('Why do citizens visit our website?')
+plt.axis('equal')
+
+plt.show()
