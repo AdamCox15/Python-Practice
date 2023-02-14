@@ -213,3 +213,10 @@ plt.show()
 
 # Adding a yerr 'error bar' 
 plt.bar(hours.officer, hours.avg_hours_worked,yerr=hours.std_hours_worked)
+# Addded label
+plt.bar(hours.officer, hours.desk_work, label="Desk Work")
+# Added bottom
+plt.bar(hours.officer, hours.field_work, bottom= hours.desk_work, label='Field Work')
+
+plt.legend()
+plt.shop()
