@@ -205,3 +205,11 @@ plt.show()
 
 plt.scatter(cellphone.x, cellphone.y, color='red', marker='s', alpha=0.1)
 
+#  ------- Building a simple bar chart --------------
+
+plt.bar(hours.officer, hours.avg_hours_worked)
+        
+plt.show()
+
+# Adding a yerr 'error bar' 
+plt.bar(hours.officer, hours.avg_hours_worked,yerr=hours.std_hours_worked)
