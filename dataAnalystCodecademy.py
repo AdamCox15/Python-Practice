@@ -43,3 +43,26 @@ plt.title('Why do citizens visit our website?')
 plt.axis('equal')
 
 plt.show()
+
+# ------- Hypothesis Testing for A/B Tests "testing for significance" -------
+
+from scipy.stats import chi2_contingency
+
+control_group = 7700
+variant_group = 7700
+control_success = 231
+variant_success = 308
+control_fail = control_group - control_success
+variant_fail = variant_group - variant_success
+
+results = chi2_contingency([
+  [control_fail, control_success],
+  [variant_fail, variant_success]
+])
+
+p = results[1]
+
+if p < 0.05:
+    print("Significant!")
+if p > 0.05:
+    print("Not significant!")
