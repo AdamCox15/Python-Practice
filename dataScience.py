@@ -220,3 +220,18 @@ plt.bar(hours.officer, hours.field_work, bottom= hours.desk_work, label='Field W
 
 plt.legend()
 plt.shop()
+
+# ----------- Modifying histograms/histogram practice ---------------
+
+plt.hist(puppies.weight, bins=50, range=(5, 35))
+
+plt.xlabel('Puppy Weight (lbs)')
+plt.ylabel('Number of Puppies')
+
+plt.show()
+
+plt.hist(gravel.radius, bins=40, range=(2, 8), density=True)
+
+plt.xlabel('Gravel Radius (mm)')
+plt.ylabel('Frequency')
+plt.title('Sample from Shoeprint')
