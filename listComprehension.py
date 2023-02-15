@@ -66,4 +66,17 @@ a = [1.0, 2.0, 3.0]
 b = [4.0, 5.0, 6.0]
 quotients = [item1 / item2 for (item2, item1) in zip(a,b)]
 
+# Capitals
+capitals = ["Santiago", "Paris", "Copenhagen"]
+countries = ["Chile", "France", "Denmark"]
+locations = [capital + ", " + country for (capital, country) in zip(capitals, countries)]
 
+# str() integer into a string
+names = ["Shilah", "Arya", "Kele"]
+ages = [14, 9, 35]
+users = ["Name: " + name + ", Age: " + str(age) for (name, age) in zip(names, ages)]
+
+# Greater than with zip
+a = [30, 42, 10]
+b = [15, 16, 17]
+greater_than = [item1 > item2 for (item1, item2) in zip(a, b)]
