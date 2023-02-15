@@ -27,3 +27,18 @@ greetings = ["Hello, " + name for name in names]
 names = ["Elaine", "George", "Jerry", "Cosmo"]
 first_character = [name[0] for name in names]
 
+# Size or length
+names = ["Elaine", "George", "Jerry", "Cosmo"]
+lengths = [len(name) for name in names]
+
+# Opposite using not
+booleans = [True, False, True]
+opposite = [not bool for bool in booleans]
+
+# Same string 
+names = ["Elaine", "George", "Jerry", "Cosmo"]
+is_Jerry = [name == "Jerry" for name in names]
+
+
+
+
