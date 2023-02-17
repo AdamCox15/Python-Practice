@@ -255,3 +255,26 @@ print(homelessness.values)
 print(homelessness.columns)
 # .index: An index for the rows: either row numbers or row names.
 print(homelessness.index)
+
+# --------- Sorting rows ------------------------
+
+homelessness_ind = homelessness.sort_values("individuals")
+print(homelessness_ind.head())
+
+homelessness_fam = homelessness.sort_values("family_members", ascending = False)
+print(homelessness_fam.head())
+
+homelessness_reg_fam = homelessness.sort_values(["region", "family_members"], ascending=[True, False])
+print(homelessness_reg_fam.head())
+
+#  ---------- Subsetting columns ------------
+
+individuals = homelessness["individuals"]
+print(individuals.head())
+
+state_fam = homelessness[["state", "family_members"]]
+print(state_fam.head())
+
+ind_state = homelessness[["individuals", "state"]]
+print(ind_state.head())
+
