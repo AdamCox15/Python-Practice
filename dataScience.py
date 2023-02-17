@@ -278,3 +278,24 @@ print(state_fam.head())
 ind_state = homelessness[["individuals", "state"]]
 print(ind_state.head())
 
+#  -------------- Subsetting rows "Filtering or selecting rows" ------------
+
+ind_gt_10k = homelessness[homelessness["individuals"] > 10000]
+print(ind_gt_10k)
+
+mountain_reg = homelessness[homelessness["region"] == "Mountain"]
+print(mountain_reg)
+
+# Filtering miltiple conditions 
+fam_lt_1k_pac = homelessness[(homelessness["family_members"] < 1000) & (homelessness["region"] == "Pacific")]
+print(fam_lt_1k_pac)
+
+# ----------- Subsetting rows by categorical variables -------------
+
+south_mid_atlantic = homelessness[(homelessness["region"] == "South Atlantic") | (homelessness["region"] == "Mid-Atlantic")]
+print(south_mid_atlantic)
+
+canu = ["California", "Arizona", "Nevada", "Utah"]
+mojave_homelessness = homelessness[homelessness["state"].isin(canu)]
+
+print(mojave_homelessness)
