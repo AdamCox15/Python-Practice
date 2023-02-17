@@ -235,3 +235,23 @@ plt.hist(gravel.radius, bins=40, range=(2, 8), density=True)
 plt.xlabel('Gravel Radius (mm)')
 plt.ylabel('Frequency')
 plt.title('Sample from Shoeprint')
+
+# --------------- Inspecting a dataframe --------------------
+
+# .head() returns the first few rows (the “head” of the DataFrame).
+print(homelessness.head())
+# .info() shows information on each of the columns, such as the data type and number of missing values.
+print(homelessness.info())
+# .shape returns the number of rows and columns of the DataFrame.
+print(homelessness.shape)
+# .describe() calculates a few summary statistics for each column.
+print(homelessness.describe())
+
+# ------- Parts of a DataFrame ----------------
+
+# .values: A two-dimensional NumPy array of values.
+print(homelessness.values)
+# .columns: An index of columns: the column names.
+print(homelessness.columns)
+# .index: An index for the rows: either row numbers or row names.
+print(homelessness.index)
