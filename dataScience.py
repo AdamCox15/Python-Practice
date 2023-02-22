@@ -299,3 +299,9 @@ canu = ["California", "Arizona", "Nevada", "Utah"]
 mojave_homelessness = homelessness[homelessness["state"].isin(canu)]
 
 print(mojave_homelessness)
+
+#  ---------- Adding new columns ------------------
+
+homelessness["total"] = homelessness["individuals"] + homelessness["family_members"]
+
+homelessness["p_individuals"] = homelessness["individuals"] / homelessness["total"]
