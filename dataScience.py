@@ -305,3 +305,15 @@ print(mojave_homelessness)
 homelessness["total"] = homelessness["individuals"] + homelessness["family_members"]
 
 homelessness["p_individuals"] = homelessness["individuals"] / homelessness["total"]
+
+#  -------- Little bit of everything --------------
+
+homelessness["indiv_per_10k"] = 10000 * homelessness["individuals"] / homelessness["state_pop"] 
+
+high_homelessness = homelessness[homelessness["indiv_per_10k"] > 20]
+
+high_homelessness_srt = high_homelessness.sort_values("indiv_per_10k", ascending=False)
+
+result = high_homelessness_srt[["state", "indiv_per_10k"]]
+
+print(result)
